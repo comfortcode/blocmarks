@@ -4,7 +4,8 @@
  gem 'rails', '4.2.5'
  gem 'devise'
  gem 'bootstrap-sass'
-
+ gem 'heroku', '~> 3.37.1'
+ 
  group :production do
    gem 'pg'
    gem 'rails_12factor'
@@ -21,7 +22,7 @@
  gem 'turbolinks'
  gem 'figaro'
  gem 'pry'
-
+ 
  group :development, :test do
    gem 'byebug'
    gem 'web-console', '~> 2.0'
