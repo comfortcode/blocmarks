@@ -15,4 +15,30 @@
  */
  
 @import 'bootstrap-sprockets';
-@import 'bootstrap'
+@import 'bootstrap';
+
+h1 {
+    text-align: center;
+}
+
+.topic-panel {
+        text-align: center;
+}
+
+.bookmark-panel {
+    margin-bottom: 20px;
+}
+
+.row-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+    
+.row-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column; 
+}

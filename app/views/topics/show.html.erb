@@ -1,0 +1,5 @@
+<h1><%= @topic.title %></h1>
+
+<% for b in @topic.bookmarks %>
+    <%= render b %>
+<% end %>
