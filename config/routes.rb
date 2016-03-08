@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :topics, except: [:show]
   devise_for :users
-  # root to: 'welcome#landing'
-  root to: 'topics#index'
+  root to: 'welcome#landing'
   get '/:title', to: 'topics#show', as: :topic_show
   
   # The priority is based upon order of creation: first created -> highest priority.
