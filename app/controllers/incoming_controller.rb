@@ -6,10 +6,12 @@ class IncomingController < ApplicationController
   def create
      # Take a look at these in your server logs
      # to get a sense of what you're dealing with.
-     puts "INCOMING PARAMS HERE: #{params}"
-
-    # You put the message-splitting and business
-    # magic here.
+     puts "Sender: #{params[:sender]}"
+     puts "subject: #{params[:subject]}"
+     puts "body: #{params[:body]}"
+     
+     # You put the message-splitting and business
+     # magic here.
      # Find the user by using params[:sender]
      # Find the topic by using params[:subject]
      # Assign the url to a variable after retreiving it from params["body-plain"]
