@@ -8,7 +8,7 @@ class IncomingController < ApplicationController
      # to get a sense of what you're dealing with.
      puts "Sender: #{params[:sender]}"
      puts "subject: #{params[:subject]}"
-     puts "body: #{params[:stripped_text]}"
+     puts "body: #{params[:'stripped-text']}"
      
      # You put the message-splitting and business
      # magic here.
