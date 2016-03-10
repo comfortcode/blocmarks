@@ -1,5 +1,6 @@
 <h1><%= @topic.title %></h1>
 <p><%= link_to "New Bookmark", new_topic_bookmark_path(@topic) %></p>
 <% for b in @topic.bookmarks %>
+    <%#= render partial: 'bookmarks/bookmark', locals: { bookmark: b, topic: @topic } %>
     <%= render b %>
 <% end %>

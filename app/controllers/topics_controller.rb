@@ -22,9 +22,10 @@ class TopicsController < ApplicationController
  end
 
   def show
+    alert = '#{params}'
     if params.has_key?(:id)
       @topic = Topic.find(params[:id])
-    else 
+    else
        @topic = Topic.find_by(title: (params[:title]))
     end 
    end

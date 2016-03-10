@@ -1,4 +1,5 @@
 <div class="bookmark-panel">
-    <h5><%= link_to bookmark.url, "#" %></h5>
+    <h5><%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %></h5>
     <a>Like</a>
+    <%= link_to "Delete", [bookmark.topic, bookmark], method: :delete %>
 </div>

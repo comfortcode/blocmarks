@@ -1,3 +1,5 @@
+<!--form_for([@user, @profile], :url => user_profile_path(@user))-->
+Topic:<%= topic.title %>
 <%= form_for [topic, bookmark] do |b| %>
    <%= b.label :url %>
    <%= b.text_field :url %>
