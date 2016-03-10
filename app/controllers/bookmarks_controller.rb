@@ -45,8 +45,8 @@ class BookmarksController < ApplicationController
      else
        flash[:error] = "There was an error deleting the bookmark."
      end
-     redirect_to topic_path(@bookmark.topic.title)
-         redirect_to(:back)
+    # redirect_to topic_path(@bookmark.topic.title)
+    redirect_to(:back)
    end
      
 end
