@@ -4,12 +4,23 @@ class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
-     # Take a look at these in your server logs
-     # to get a sense of what you're dealing with.
-     puts "Sender: #{params[:sender]}"
-     puts "subject: #{params[:subject]}"
-     puts "body: #{params[:'stripped-text']}"
-     
+
+    sender = User.find_by(email: params[:sender])
+
+    if sender.exists?
+        topic = sender.topics.find_by(title: params[:subject])
+
+        unless topic.exists? # need to create new topic...
+            topic = sender.topics.new(title: params[:subject])
+        end 
+    end 
+    
+    new_bookmark = topic.bookmarks.new(url: params[:'stripped-text'])
+    if new_bookmark.save
+        puts "New email bookmark was saved. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
+    else 
+        puts "There was an error saving the bookmark. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
+    end 
      # You put the message-splitting and business
      # magic here.
      # Find the user by using params[:sender]
