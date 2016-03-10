@@ -7,10 +7,10 @@ class IncomingController < ApplicationController
 
     sender = User.find_by(email: params[:sender])
 
-    if sender.exists?
+    if sender.present?
         topic = sender.topics.find_by(title: params[:subject])
 
-        unless topic.exists? # need to create new topic...
+        unless topic.present? # need to create new topic...
             topic = sender.topics.new(title: params[:subject])
         end 
     end 
