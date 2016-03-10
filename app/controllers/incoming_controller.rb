@@ -8,19 +8,22 @@ class IncomingController < ApplicationController
     sender = User.find_by(email: params[:sender])
 
     if sender.present?
+        
         topic = sender.topics.find_by(title: params[:subject])
-
-        unless topic.present? # need to create new topic...
+    
+        if topic.nil? # need to create new topic...
             topic = sender.topics.new(title: params[:subject])
         end 
-    end 
+        
+        new_bookmark = topic.bookmarks.new(url: params[:'stripped-text'])
     
-    new_bookmark = topic.bookmarks.new(url: params[:'stripped-text'])
-    if new_bookmark.save
-        puts "New email bookmark was saved. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
-    else 
-        puts "There was an error saving the bookmark. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
+        if new_bookmark.save
+            puts "New email bookmark was saved. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
+        else 
+            puts "There was an error saving the bookmark. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
+        end
     end 
+
      # You put the message-splitting and business
      # magic here.
      # Find the user by using params[:sender]
