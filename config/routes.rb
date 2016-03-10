@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  resources :topics, except: [:show]
+  get 'bookmarks/show'
+
+  get 'bookmarks/new'
+
+  get 'bookmarks/edit'
+
+  resources :topics, param: :title, except: [:edit] do
+  	resources :bookmarks, except: [:index]
+  end
+  
   devise_for :users
   root to: 'welcome#landing'
-  get 'topic/:title', to: 'topics#show', as: :topic_show
+  # get 'topic/:title', to: 'topics#show', as: :topic_show
   post :incoming, to: 'incoming#create'
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,5 @@
 <div class="col-md-3 topic-panel">
-    <h4><%= link_to "##{topic.title}", topic_show_path(topic.title) %>
+    <h4><%= link_to "##{topic.title}", topic_path(topic.title) %>
     <small><%= link_to "", topic, method: :delete, class: 'glyphicon glyphicon-trash' %></small></h4>
     <% for b in topic.bookmarks %>
         <%= render b %>
