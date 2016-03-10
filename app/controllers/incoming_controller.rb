@@ -23,7 +23,7 @@ class IncomingController < ApplicationController
             puts "There was an error saving the bookmark. Sender #{sender.email}, Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
         end
     else
-        puts "There was an error saving the bookmark as the sender #{sender.email} was not a found user. Topic: #{topic.title}, New_Bookmark: #{new_bookmark.url}"
+        puts "There was an error saving the bookmark as the sender #{params[:sender]} was not a found user. Subject: #{params[:subject]}, Body: #{params[:'stripped-text']}"
     end 
 
      # You put the message-splitting and business
