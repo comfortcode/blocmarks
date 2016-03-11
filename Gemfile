@@ -22,6 +22,7 @@
  gem 'turbolinks'
  gem 'figaro'
  gem 'pry'
+ gem 'pundit'
  
  group :development, :test do
    gem 'byebug'
