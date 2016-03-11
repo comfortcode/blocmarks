@@ -9,11 +9,13 @@ class IncomingController < ApplicationController
 
     if sender.present?
         
-        topic = sender.topics.find_by(title: params[:subject])
+        topic = Topic.create_with(user: sender).find_or_create_by(title: params[:subject])
+
+        # topic = sender.topics.find_by(title: params[:subject])
     
-        if topic.nil? # need to create new topic...
-            topic = sender.topics.new(title: params[:subject])
-        end 
+        # if topic.nil? # need to create new topic...
+        #     topic = sender.topics.new(title: params[:subject])
+        # end 
         
         new_bookmark = topic.bookmarks.new(url: params[:'stripped-text'])
     
