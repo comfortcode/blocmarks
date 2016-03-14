@@ -1,0 +1,9 @@
+<h1>My Bookmarks</h1>
+<div class="row-flex">
+    <%= render @topics %>
+</div>
+
+<h1>Liked Bookmarks</h1>
+    <% for like in @likes %>
+        <%= render like.bookmark %>
+    <% end %>
