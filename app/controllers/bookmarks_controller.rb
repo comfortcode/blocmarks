@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
+    @like = Like.new
     authorize @bookmark
   end
 
@@ -29,8 +30,7 @@ class BookmarksController < ApplicationController
 
    def edit
        @bookmark = Bookmark.find(params[:id])
-       # need this?
-       # authorize @bookmark
+        authorize @bookmark
      end
   
    def update
