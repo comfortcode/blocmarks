@@ -17,9 +17,8 @@ class BookmarksController < ApplicationController
     authorize @bookmark
     if @bookmark.save
       flash[:notice] = "Bookmark was saved"
-      redirect_to topic_show_path({
-        title: @topic.title
-      })
+      redirect_to topic_path(@topic)
+      
     else 
       flash[:error] = "There was an error saving the bookmark. Please try again"
       render :new

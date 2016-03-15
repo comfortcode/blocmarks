@@ -25,11 +25,7 @@ class TopicsController < ApplicationController
  end
 
   def show
-    if params.has_key?(:id)
-      @topic = Topic.find(params[:id])
-    else
-       @topic = Topic.find_by(title: (params[:title]))
-    end 
+    @topic = Topic.find(params[:id])
     authorize @topic
    end
 

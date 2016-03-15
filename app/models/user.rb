@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many :bookmarks, through: :topics
   has_many :likes, :dependent => :destroy
 
-   def liked(bookmark) #should this pass in "post" instead of "bookmark?" (that's what the checkpoint says)
-     likes.where(bookmark_id: bookmark.id).first # self.likes is implied?
+   def liked(bookmark) 
+     likes.where(bookmark_id: bookmark.id).first
    end
    
 end
