@@ -1,15 +1,7 @@
 class TopicsController < ApplicationController
   def index
-    # @topics = policy_scope(current_user.topics)
-    
-    # How do I get around having to do this?
-    if current_user
-        @topics = current_user.topics
-    else
-        @topics = Topic.new
-        authorize @topics    
-    end 
-
+    authorize Topic
+    @topics = current_user.topics
     @new_topic = Topic.new
     @like = Like.new
   end 

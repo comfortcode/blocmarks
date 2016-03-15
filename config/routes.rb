@@ -2,15 +2,14 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-  # resources :topics, param: :title, except: [:edit] do
   resources :topics, except: [:edit, :show] do
   	resources :bookmarks, except: [:index]
   end
 
-  resources :bookmarks, only: [:show, :new, :edit, :update] do 
+  resources :bookmarks, only: [] do 
 	     resources :likes, only: [:create, :destroy]
   end 
-
+  
   devise_for :users
   root to: 'welcome#landing'
   get 'topics/:title', to: 'topics#show', as: :topic_show
