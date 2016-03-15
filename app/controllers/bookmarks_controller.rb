@@ -6,16 +6,14 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @bookmark = Bookmark.new
     @topic = Topic.find(params[:topic_id])
-    # need in new as well?
-    # authorize @bookmark
+    @bookmark = @topic.bookmarks.new
+    authorize @bookmark
   end
   
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new(params.require(:bookmark).permit(:url))
-    
     authorize @bookmark
     if @bookmark.save
       flash[:notice] = "Bookmark was saved"
@@ -38,7 +36,7 @@ class BookmarksController < ApplicationController
         authorize @bookmark
        if @bookmark.update_attributes(params.require(:bookmark).permit(:url))
          flash[:notice] = "Bookmark was updated."
-         redirect_to [@topic, @bookmark]
+         redirect_to [@bookmark.topic, @bookmark]
        else
          flash[:error] = "There was an error saving the bookmark. Please try again."
          render :edit
