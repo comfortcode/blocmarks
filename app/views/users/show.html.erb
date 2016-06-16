@@ -3,5 +3,6 @@
 
 <h1>Liked Bookmarks</h1>
 <% for like in @likes %>
-    <%= render like.bookmark %>
+    <!--Or <%#= render like.bookmark %>-->
+    <%= render partial: 'bookmarks/bookmark', locals: {bookmark: like.bookmark} %>
 <% end %>

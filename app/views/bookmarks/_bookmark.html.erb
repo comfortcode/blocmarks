@@ -1,5 +1,5 @@
 <div class="bookmark-panel">
-    <h5><%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %></h5>
+    <h3><%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark)%></h3>
     <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
     <%= link_to "Delete", [bookmark.topic, bookmark], method: :delete %>
     <%= link_to "Edit", edit_topic_bookmark_path(bookmark.topic, bookmark) %>

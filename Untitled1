@@ -1,0 +1,30 @@
+topic_bookmark_path(@topic, @bookmark)
+
+link_to "delete this", [@topic, @bookmark, execute: true], method: :delete
+/topics/123/bookmarks/456?execute=true
+
+params[:topic_id]
+params[:id]
+
+@topic = Topic.new(topic_params)
+
+def topic_params
+  params.require("topic").permit("title")
+end
+
+@topic = Topic.find(params[:id])
+
+
+def change
+  create_table :groups
+    t.string :title
+  end
+  
+  Group.reset_column_information
+
+  Topic.all.each do |topic|
+    Group.create(title: topic.title)
+  end
+  
+  remove_table :topics
+ end

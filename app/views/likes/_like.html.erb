@@ -1,4 +1,4 @@
-<div>
+<h4>
   <% if like = current_user.liked(bookmark) %>
     <%= link_to [bookmark, like], class: 'btn btn-danger', method: :delete do %>
       <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
@@ -8,4 +8,4 @@
       <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
     <% end %>
   <% end %>
-</div>
+</h4>

@@ -9,12 +9,12 @@
             <span class="icon-bar"></span>
           </button>
           <!--<a  href="#"><b>Blocmarks</b></a>-->
-        <%= link_to "Blocmarks", root_path, class: "navbar-brand" %>
+        <%= link_to "Mylinks", root_path, class: "navbar-brand" %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
          <% if current_user %>
-            <li><%= link_to "My Bookmarks", topics_path %></li>         
+            <li><%= link_to "My Links", topics_path %></li>         
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             <!--<li> Hello <%#= (current_user.name || current_user.email)%>!</li>-->
          <% else %>
