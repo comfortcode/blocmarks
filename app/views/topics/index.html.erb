@@ -1,5 +1,4 @@
-<h1>My Links</h1>
-
+<h1 class="handwritten highlight">My Links</h1>
 <% if policy(Topic).index? %>
 <div class="text-center"><%= render partial: 'topics/form', locals: { topic: @new_topic} %></div>
 <% end %>
@@ -7,4 +6,3 @@
 <div class="row-flex">
     <%= render @topics %>
 </div>
-

@@ -14,45 +14,64 @@
  *= require_self
  */
  
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Caveat+Brush);
 @import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Hammersmith+One|Permanent+Marker|Gochi+Hand);
-$font-family-sans-serif: 'Gochi Hand', cursive;
 
-// font-family: 'Archivo Narrow', sans-serif;
-
+// $font-family-sans-serif: 'Gochi Hand', cursive;
+$font-family-sans-serif: 'Archivo Narrow', sans-serif;
 // font-family: 'Hammersmith One', sans-serif;
-
 // font-family: 'Permanent Marker', cursive;
-
 // font-family: 'Gochi Hand', cursive;
 
 $brand-primary: #129793;
 // $brand-danger: #FF7260;
 $brand-danger: #505050;
+$navbar-default-link-color: white;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 body {
     // background-image: url("paper.gif");
-    background-color: #FFF5C3;
+    // background-color: #FFF5C3;
 }
 
-
-  .navbar-default {
-    background-color: #9BD7D5;
-    border-color: #9BD7D5;
+.handwritten {
+  font-family: 'Caveat Brush', cursive;
 }
+
+h1 {
+    font-size: 500%; 
+}
+
+.no-br{
+    display: inline;
+}
+
+.navbar-default {
+    background-color: #05706c;
+    border-color: #05706c;
+  }
 
 h1 {
     text-align: center;
 }
 
+.bookmark-panel {
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    text-align: center;
+    border-color: #b0afaf;
+}
+    
 .topic-panel {
-        text-align: center;
+    text-align: center;
 }
 
 .bookmark-panel {
     margin-bottom: 20px;
+    background-color: #F6F6F6;
+    
 }
 
 .row-flex {

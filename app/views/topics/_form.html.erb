@@ -1,4 +1,12 @@
-<%= form_for topic do |t| %>
-   <%= t.text_field :title, placeholder: 'Topic Title' %>
-   <%= t.submit "Add Topic", class:'btn btn-primary' %>
- <% end %>
+<div class="row">
+   <div class="col-md-4 col-md-offset-4">
+      <%= form_for topic do |t| %>
+      <div class="input-group">
+         <%= t.text_field :title, placeholder: 'Topic Title', class:'form-control' %>
+         <span class="input-group-btn">
+            <%= t.submit "Add Topic", class:'btn btn-default' %>
+         </span>
+       <% end %>
+      </div>
+   </div>
+</div>

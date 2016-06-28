@@ -1,6 +1,8 @@
 <div class="bookmark-panel">
-    <h3><%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark)%></h3>
+    <h3 class="no-br"><%= link_to bookmark.url, extlink(bookmark.url), :target => "_blank"%></h3>
+    <h6 class="no-br"><%= link_to "", [bookmark.topic, bookmark], method: :delete, class: 'glyphicon glyphicon-trash' %>
+    <%= link_to "", edit_topic_bookmark_path(bookmark.topic, bookmark), class:'glyphicon glyphicon-pencil
+' %></h6>
     <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-    <%= link_to "Delete", [bookmark.topic, bookmark], method: :delete %>
-    <%= link_to "Edit", edit_topic_bookmark_path(bookmark.topic, bookmark) %>
+</h4>    
 </div>
