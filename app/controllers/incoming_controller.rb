@@ -10,7 +10,7 @@ class IncomingController < ApplicationController
     if sender.present?
         
         # create or find the topic...
-        topic = Topic.create_with(user: sender).find_or_create_by_topic(title: params[:subject], :case_sensitive => false)
+        topic = Topic.create_with(user: sender).find_or_create_by(title: params[:subject])
 
         # create and save the bookmark...
         new_bookmark = topic.bookmarks.new(url: params[:'stripped-text'])
