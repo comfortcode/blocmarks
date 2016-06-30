@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   get 'users/show'
-
+  get 'help' => 'welcome#help'
+  
   resources :topics, except: [:edit
   ] do
   	resources :bookmarks, except: [:index]

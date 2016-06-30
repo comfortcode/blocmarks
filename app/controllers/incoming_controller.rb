@@ -2,6 +2,7 @@ class IncomingController < ApplicationController
 
   skip_before_action :verify_authenticity_token, only: [:create]
 
+
   def create
 
     sender = User.find_by(email: params[:sender])
@@ -9,9 +10,8 @@ class IncomingController < ApplicationController
     if sender.present?
         
         # create or find the topic...
-        topic = Topic.create_with(user: sender).find_or_create_by(title: params[:subject])
-        
-        
+        topic = Topic.create_with(user: sender).find_or_create_by_topic(title: params[:subject], :case_sensitive => false)
+
         # create and save the bookmark...
         new_bookmark = topic.bookmarks.new(url: params[:'stripped-text'])
     
